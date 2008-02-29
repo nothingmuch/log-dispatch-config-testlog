@@ -5,8 +5,8 @@ use strict;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-	NAME         => '',
-	VERSION_FROM => '',
+	NAME         => 'Log::Dispatch::Config::TestLog',
+	VERSION_FROM => 'lib/Log/Dispatch/Config/TestLog.pm',
 	INSTALLDIRS  => 'site',
 	SIGN         => 1,
 	PL_FILES     => { },
