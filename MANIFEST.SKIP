@@ -36,3 +36,4 @@
 \.tar\.gz$
 ^(\w+-)*(\w+)-\d\.\d+$
 
+fake_test.log
