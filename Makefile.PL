@@ -11,7 +11,11 @@ WriteMakefile(
 	SIGN         => 1,
 	PL_FILES     => { },
 	PREREQ_PM    => {
-		'Test::use::ok' => 0,
+		'Path::Class' => 0,
+		'Log::Dispatch::Binlog' => 0, # for test
+		'Log::Dispatch::Config' => 0,
+		'Sub::Override' => 0,
+		'Test::Builder' => 0,
 	},
 );
 
