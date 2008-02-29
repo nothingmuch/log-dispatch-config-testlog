@@ -142,6 +142,18 @@ Note that this only works for L<Test::Builder> based tests.
 
 =back
 
+=head1 TODO
+
+=over 4
+
+=item Better test logging
+
+Make the test logging use different levels for certain things (fails increase
+the level, for instance), and consider scrubbing multi line output since we
+provide a one line format by default.
+
+=back
+
 =head1 VERSION CONTROL
 
 This module is maintained using Darcs. You can get the latest version from
