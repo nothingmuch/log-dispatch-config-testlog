@@ -50,6 +50,10 @@ sub caller_file_to_log_file {
 			or die "Couldn't create test log directory $log_dir";
 	}
 
+	unless ( -w $log_dir ) {
+		die "Log directory $log_dir is not writable";
+	}
+
 	return $log_dir->file( $file->basename . ".log" )->stringify;
 }
 
