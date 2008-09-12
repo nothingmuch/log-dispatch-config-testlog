@@ -64,12 +64,14 @@ sub import {
 
 	require Test::Builder;
 
+	my $file = file($0)->absolute;
+
     Log::Dispatch::Config->configure(
         $self->new(
 			%args,
             file => {
 				mode     => "write",
-				filename => $self->caller_file_to_log_file( file((caller)[1]), %args ),
+				filename => $self->caller_file_to_log_file( $file, %args ),
 				format   => "[%d] [%p] %m\n",
 				%{ $args{file} || {} }
 			},
