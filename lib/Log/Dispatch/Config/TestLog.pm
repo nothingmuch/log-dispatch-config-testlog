@@ -163,9 +163,7 @@ provide a one line format by default.
 
 =head1 VERSION CONTROL
 
-This module is maintained using Darcs. You can get the latest version from
-L<http://nothingmuch.woobling.org/code>, and use C<darcs send> to commit
-changes.
+L<http://github.com/nothingmuch/log-dispatch-config-testlog>
 
 =head1 AUTHOR
 
@@ -173,7 +171,7 @@ Yuval Kogman E<lt>nothingmuch@woobling.orgE<gt>
 
 =head1 COPYRIGHT
 
-	Copyright (c) 2008 Yuval Kogman. All rights reserved
+	Copyright (c) 2008, 2010 Yuval Kogman. All rights reserved
 	This program is free software; you can redistribute
 	it and/or modify it under the same terms as Perl itself.
 
