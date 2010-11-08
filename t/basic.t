@@ -4,14 +4,24 @@ use strict;
 use warnings;
 
 use Test::More 'no_plan';
+use Test::Deep;
 
 use FindBin;
 use Path::Class;
 use Storable qw(fd_retrieve);
+use Perl::Command;
 
-my $test = dir($FindBin::Bin)->file("fake_test");
+my ( $perl, @lib ) = @PERL;
 
-defined( my $pid = open my $fh, "$^X $test 2>&1 |" )
+foreach my $opt ( @lib ) {
+	$opt = quotemeta($opt);
+}
+
+my $test = dir($FindBin::Bin)->file("fake_test")->relative;
+
+unlink "${test}.log";
+
+defined( my $pid = open my $fh, "$perl @lib $test 2>&1 |" )
 	or die "fork failed: $!";
 
 () = <$fh>;
@@ -30,13 +40,13 @@ require_ok("Log::Dispatch::Config::TestLog");
 
 is( @log, 10, "10 log messages" );
 
-is_deeply(
+cmp_deeply(
 	\@log,
 	[
 		{
 			'level' => 'info',
 			'name' => 'file',
-			'message' => "Starting test $test, pid = $pid",
+			'message' => re(qr/Starting test \Q$test\E, pid = \d+/),
 		},
 		{
 			'level' => 'info',

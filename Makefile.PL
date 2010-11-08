@@ -15,7 +15,9 @@ WriteMakefile(
 		'Log::Dispatch::Binlog' => 0, # for test
 		'Log::Dispatch::Config' => 0,
 		'Sub::Override' => 0,
-		'Test::Builder' => 0,
+		'Test::Builder' => '0.96',
+		'Perl::Command' => 0,
+		'Test::Deep' => 0,
 	},
 );
 

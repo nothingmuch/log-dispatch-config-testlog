@@ -89,13 +89,14 @@ sub import {
 	if ( defined( $tap_level ) ) {
 		
 		unless ( @overrides ) {
-			foreach my $print qw(_print _print_diag) {
+			foreach my $print ( qw(_diag _print_to_fh) ) {
 				no strict 'refs';
 				my $fq = "Test::Builder::$print";
 				my $orig = \&$fq;
 
 				push @overrides, Sub::Override->new( $fq, sub {
 					my ( $builder, @output ) = @_;
+					shift @output if $print eq '_print_to_fh'; # first arg is output handle
 					chomp( my $out = "@output" );
 					$logger->$tap_level("TAP: $out") if length $out;
 					goto $orig;
