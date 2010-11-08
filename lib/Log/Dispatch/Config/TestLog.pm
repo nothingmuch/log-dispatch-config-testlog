@@ -5,7 +5,7 @@ package Log::Dispatch::Config::TestLog;
 use strict;
 use warnings;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 use Sub::Override;
 use Test::Builder;
